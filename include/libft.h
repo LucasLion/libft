@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 10:14:58 by llion             #+#    #+#             */
-/*   Updated: 2022/12/12 14:42:38 by llion            ###   ########.fr       */
+/*   Updated: 2023/03/28 00:25:19 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct g_list
 {
 	char			*content;
 	struct g_list	*next;
-}					gnl_list;
+}					t_gnl_list;
 
 /*  --------- PARTIE 1 ---------  */
 
@@ -102,17 +102,17 @@ int			ft_printpct(int fd);
 int			ft_numlen(unsigned int n);
 
 /*  --------- GET_NEXT_LINE ---------  */
- 
-char		*get_next_line(int fd);
-void		read_and_fill_tank(gnl_list **tank, int fd);
-char		*extract_and_fill_line(gnl_list *tank);
-void		malloc_line(gnl_list *tank, char **line);
-void		clean_tank(gnl_list **tank);
 
-int			find_new_line(gnl_list *node);
-void		ft_lst_add_back(gnl_list **lst, int lu, char *buff);
-void		free_tank(gnl_list *tank, int index);
+char		*get_next_line(int fd);
+void		read_and_fill_tank(t_gnl_list **tank, int fd);
+char		*extract_and_fill_line(t_gnl_list *tank);
+void		malloc_line(t_gnl_list *tank, char **line);
+void		clean_tank(t_gnl_list **tank);
+
+int			find_new_line(t_gnl_list *node);
+void		ft_lst_add_back(t_gnl_list **lst, int lu, char *buff);
+void		free_tank(t_gnl_list *tank, int index);
 int			len(char *str);
-gnl_list	*ft_lstlast_gnl(gnl_list *tank);
+t_gnl_list	*ft_lstlast_gnl(t_gnl_list *tank);
 
 #endif

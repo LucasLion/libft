@@ -6,16 +6,16 @@
 /*   By: llion <llion@student.42mulhouse.fr >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:14:21 by llion             #+#    #+#             */
-/*   Updated: 2022/12/12 14:43:25 by llion            ###   ########.fr       */
+/*   Updated: 2023/03/28 00:25:42 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	find_new_line(gnl_list *tank)
+int	find_new_line(t_gnl_list *tank)
 {
-	int		i;
-	gnl_list	*current;
+	int			i;
+	t_gnl_list	*current;
 
 	if (tank == NULL)
 		return (0);
@@ -32,11 +32,11 @@ int	find_new_line(gnl_list *tank)
 	return (0);
 }
 
-void	ft_lst_add_back(gnl_list **lst, int lu, char *buff)
+void	ft_lst_add_back(t_gnl_list **lst, int lu, char *buff)
 {
-	int		i;
-	gnl_list	*last;
-	gnl_list	*new;
+	int			i;
+	t_gnl_list	*last;
+	t_gnl_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (new == NULL)
@@ -71,9 +71,9 @@ int	len(char *str)
 	return (i);
 }
 
-gnl_list	*ft_lstlast_gnl(gnl_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	gnl_list	*tmp;
+	t_list	*tmp;
 
 	tmp = lst;
 	while (tmp && tmp->next)
@@ -81,10 +81,10 @@ gnl_list	*ft_lstlast_gnl(gnl_list *lst)
 	return (tmp);
 }
 
-void	free_tank(gnl_list *tank, int index)
+void	free_tank(t_gnl_list *tank, int index)
 {
-	gnl_list	*current;
-	gnl_list	*next;
+	t_gnl_list	*current;
+	t_gnl_list	*next;
 
 	if (index == 1)
 	{

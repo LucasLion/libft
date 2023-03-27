@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr >       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/27 19:07:53 by llion             #+#    #+#              #
-#    Updated: 2023/03/28 00:04:03 by llion            ###   ########.fr        #
+#    Updated: 2023/03/28 00:22:06 by llion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,10 @@ SRCS		= src/ft_isalpha.c      \
 			  src/ft_putstr_fd.c	\
 			  src/ft_putnbr_fd.c	\
 			  src/ft_numlen.c		\
-			  src/ft_tablen.c		
+			  src/ft_freetab.c		\
+			  src/ft_tablen.c		\
+			  src/get_next_line.c	\
+			  src/get_next_line_utils.c
 
 NAME		= libft.a
 CC			= gcc

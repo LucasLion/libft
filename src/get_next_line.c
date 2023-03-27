@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:56:46 by llion             #+#    #+#             */
-/*   Updated: 2022/12/12 14:44:36 by llion            ###   ########.fr       */
+/*   Updated: 2023/03/28 00:27:49 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 char	*get_next_line(int fd)
 {
-	static gnl_list		*tank = NULL;
+	static t_gnl_list	*tank[4096];
 	char				*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 	{
-		free_tank(tank, 1);
-		tank = NULL;
+		free_tank(tank[fd], 1);
+		tank[fd] = NULL;
 		return (NULL);
 	}
 	line = NULL;
-	read_and_fill_tank(&(tank), fd);
-	if (tank == NULL)
+	read_and_fill_tank(&(tank[fd]), fd);
+	if (tank[fd] == NULL)
 		return (NULL);
-	line = extract_and_fill_line(tank);
-	clean_tank(&(tank));
+	line = extract_and_fill_line(tank[fd]);
+	clean_tank(&(tank[fd]));
 	if (!line)
 	{
-		free(tank->content);
-		free(tank);
-		tank = NULL;
+		free(tank[fd]->content);
+		free(tank[fd]);
+		tank[fd] = NULL;
 	}
 	return (line);
 }
 
-void	read_and_fill_tank(gnl_list **tank, int fd)
+void	read_and_fill_tank(t_gnl_list **tank, int fd)
 {
 	char	*buff;
 	int		lu;
@@ -67,7 +67,7 @@ void	read_and_fill_tank(gnl_list **tank, int fd)
 	}
 }
 
-char	*extract_and_fill_line(gnl_list *tank)
+char	*extract_and_fill_line(t_gnl_list *tank)
 {		
 	int		i;
 	int		j;
@@ -95,7 +95,7 @@ char	*extract_and_fill_line(gnl_list *tank)
 	return (line);
 }
 
-void	malloc_line(gnl_list *tank, char **line)
+void	malloc_line(t_gnl_list *tank, char **line)
 {
 	int	i;
 	int	len;
@@ -119,12 +119,12 @@ void	malloc_line(gnl_list *tank, char **line)
 	*line = malloc(sizeof(char) * (len + 1));
 }
 
-void	clean_tank(gnl_list **tank)
+void	clean_tank(t_gnl_list **tank)
 {
-	gnl_list	*last;
-	gnl_list	*clean_node;
-	int		i;
-	int		j;
+	t_gnl_list	*last;
+	t_gnl_list	*clean_node;
+	int			i;
+	int			j;
 
 	clean_node = malloc(sizeof(t_list));
 	if (tank == NULL || clean_node == NULL)
