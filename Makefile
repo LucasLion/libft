@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr >       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/27 19:07:53 by llion             #+#    #+#              #
-#    Updated: 2023/03/28 00:22:06 by llion            ###   ########.fr        #
+#    Updated: 2023/03/28 16:14:30 by llion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,16 +102,16 @@ objs/%.o : 	src/%.c
 $(NAME):	$(OBJS)
 			@$(AR) $(NAME) $(OBJS) 
 			@$(LIB) $(NAME)
-			@echo -e "-----> librairy libft   \033[32mCREATED\033[0m"
+			@echo "-----> librairy libft   \033[32mCREATED\033[0m"
 
 
 clean:		
 			@$(RM) $(OBJS) objs/%.o
-			@echo -e "-----> librairy objects \033[32mREMOVED\033[0m"
+			@echo "-----> librairy objects \033[32mREMOVED\033[0m"
 
 fclean:		clean
 			@$(RM) $(NAME)
-			@echo -e "-----> libft            \033[32mREMOVED\033[0m"
+			@echo "-----> libft            \033[32mREMOVED\033[0m"
 
 re:			fclean all
 
