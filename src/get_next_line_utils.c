@@ -71,9 +71,9 @@ int	len(char *str)
 	return (i);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_gnl_list	*ft_lstlast_gnl(t_gnl_list *lst)
 {
-	t_list	*tmp;
+	t_gnl_list	*tmp;
 
 	tmp = lst;
 	while (tmp && tmp->next)
